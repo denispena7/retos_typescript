@@ -1,4 +1,4 @@
-import type { UsuarioAPI, Tarea } from './models/interfaces.js';
+import type { UsuarioAPI, Tarea, RespuestaServidor } from './models/interfaces.js';
 import { ProductComponent } from './models/ProductComponent.js';
 
 // Reto 1: Contrato de la api
@@ -64,3 +64,31 @@ const producto = new ProductComponent(1000, "Portátil");
 console.log(producto.obtenerPrecioFinal());
 
 // producto.precioBase = 2000;
+
+// Reto 4
+function procesarRespuesta(res: RespuestaServidor): void {
+
+    if (res.status === 'success' && res.data) {
+        res.data.forEach(elemento => {
+            console.log(elemento);
+        });
+    }
+     else 
+    {
+        console.log(res.mensajeError);
+    }
+
+}
+
+const respuestaCorrecta: RespuestaServidor = {
+    status: 'success',
+    data: ['Usuario creado', 'Datos guardados']
+};
+
+const respuestaIncorrecta: RespuestaServidor = {
+    status: 'error',
+    mensajeError: 'Error al conectar con el servidor'
+};
+
+procesarRespuesta(respuestaCorrecta);
+procesarRespuesta(respuestaIncorrecta);

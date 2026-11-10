@@ -51,4 +51,25 @@ console.log('Tareas actualizadas:', tareasActualizadas);
 const producto = new ProductComponent(1000, "Portátil");
 console.log(producto.obtenerPrecioFinal());
 // producto.precioBase = 2000;
+// Reto 4
+function procesarRespuesta(res) {
+    if (res.status === 'success' && res.data) {
+        res.data.forEach(elemento => {
+            console.log(elemento);
+        });
+    }
+    else {
+        console.log(res.mensajeError);
+    }
+}
+const respuestaCorrecta = {
+    status: 'success',
+    data: ['Usuario creado', 'Datos guardados']
+};
+const respuestaIncorrecta = {
+    status: 'error',
+    mensajeError: 'Error al conectar con el servidor'
+};
+procesarRespuesta(respuestaCorrecta);
+procesarRespuesta(respuestaIncorrecta);
 //# sourceMappingURL=app.js.map
