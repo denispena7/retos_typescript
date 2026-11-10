@@ -1,4 +1,5 @@
-import type { UsuarioAPI, Tarea } from './models/interfaces';
+import type { UsuarioAPI, Tarea } from './models/interfaces.js';
+import { ProductComponent } from './models/ProductComponent.js';
 
 // Reto 1: Contrato de la api
 // Usuario correcto
@@ -57,3 +58,9 @@ const tareasActualizadas = completarTarea(misTareas, 2);
 console.log('Tareas originales:', misTareas);
 
 console.log('Tareas actualizadas:', tareasActualizadas);
+
+// Reto 3
+const producto = new ProductComponent(1000, "Portátil");
+console.log(producto.obtenerPrecioFinal());
+
+// producto.precioBase = 2000;
