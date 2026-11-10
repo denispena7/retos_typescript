@@ -1,5 +1,6 @@
 import type { UsuarioAPI, Tarea, RespuestaServidor } from './models/interfaces.js';
-import { ProductComponent } from './models/ProductComponent.js';
+import { ProductComponent } from './components/ProductComponent.js';
+import { ServiciosUsuarios } from './services/ServiciosUsuarios.js';
 
 // Reto 1: Contrato de la api
 // Usuario correcto
@@ -92,3 +93,11 @@ const respuestaIncorrecta: RespuestaServidor = {
 
 procesarRespuesta(respuestaCorrecta);
 procesarRespuesta(respuestaIncorrecta);
+
+// Reto 5
+const servicio = new ServiciosUsuarios('/api/usuarios');
+
+servicio.conectar();
+
+console.log(servicio.entidad);
+console.log(servicio.endpoint);
